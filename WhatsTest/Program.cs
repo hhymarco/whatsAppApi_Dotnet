@@ -29,7 +29,11 @@ namespace WhatsTest
             string password = "xLl***************GSA=";//v2 password
             string target = "316********6";// Mobile number to send the message to
 
+            string tempStr = "<message to=\"316********6@s.whatsapp.net\" type=\"text\" id=\"1404983842-0\"><x xmlns=\"jabber:x:event\"><server></server></x><body>ddddd</body><offline></offline></message>";
+            byte[] byteArray = WhatsApp.SYSEncoding.GetBytes(tempStr);
+
             WhatsApp wa = new WhatsApp(sender, password, nickname, true);
+            wa.SendMessage(target, "ddddd");
 
             //event bindings
             wa.OnLoginSuccess += wa_OnLoginSuccess;
